@@ -2,7 +2,8 @@
 # Your Name
 
 import streamlit as st
-from joblib import load
+from processor import process_symptoms, inference
+
 
 def main():
     # Set page layout to "centered"
@@ -30,9 +31,9 @@ def main():
 
         if st.button("Submit Symptoms"):
             if symptoms:
-                st.markdown(f"Processing symptoms for {st.session_state['name']}... (Model coming soon!)")
-                model = load("20241019-DiseasePredictionModelDump.joblib")
-                process(symptoms)
+                one_hot = process_symptoms(symptoms)
+                st.text(one_hot)
+                st.markdown(inference(one_hot))
                 
             else:
                 st.warning(f"{st.session_state['name']}, please enter symptoms before clicking submit.")
