@@ -32,7 +32,6 @@ def main():
         if st.button("Submit Symptoms"):
             if symptoms:
                 one_hot = process_symptoms(symptoms)
-                st.text(one_hot)
                 st.markdown(inference(one_hot))
                 
             else:
