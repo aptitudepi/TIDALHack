@@ -1,3 +1,5 @@
 streamlit
 groq
 joblib
+xg
+xgboost
